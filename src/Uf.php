@@ -14,7 +14,7 @@ class Uf extends ValidationAbstract implements ValidationInterface
         $allowedUF = array('AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MS', 'MT', 'MG', 'PA',
             'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO');
 
-        if (is_null($value)) {
+        if (empty($value)) {
             array_push($errors, "Uf não pode ser vazio!");
         }
 

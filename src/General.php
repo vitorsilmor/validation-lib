@@ -12,12 +12,12 @@ class General extends ValidationAbstract implements ValidationInterface
         $errors = [];
 
         if (is_array($value)) {
-            if (count($value)) {
+            if (count($value) == 0) {
                 array_push($errors, "Lista não pode ser vazia!");
             }
         }
 
-        if (is_null($value)) {
+        if (empty($value)) {
             array_push($errors, "Atributo não pode ser vazio!");
         }
 

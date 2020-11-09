@@ -11,7 +11,7 @@ class Email extends ValidationAbstract implements ValidationInterface
     {
         $errors = [];
 
-        if (is_null($value)) {
+        if (empty($value)) {
             array_push($errors, "Email não pode ser vazio!");
         }
 

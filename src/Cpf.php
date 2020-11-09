@@ -11,18 +11,22 @@ class Cpf extends ValidationAbstract implements ValidationInterface
     {
         $errors = [];
 
+        if (empty($value)) {
+            array_push($errors, "Cpf não pode ser vazio!");
+        }
+
         $value = $this->replaceUnnecessaryChars($value);
 
         if (!$this->validateSize($value)) {
             array_push($errors, "Cpf necessita ter ao menos 11 digitos!");
+        } else {
+            if (!$this->validateCpfCalculation($value)) {
+                array_push($errors, "Cpf inválido!");
+            }
         }
 
         if ($this->validateRepeatedNumbers($value)) {
             array_push($errors, "Números repetidos não podem vir a ser um cpf válido!");
-        }
-
-        if (!$this->validateCpfCalculation($value)) {
-            array_push($errors, "Cpf inválido!");
         }
 
         return $this->result($errors);

@@ -11,6 +11,10 @@ class Cep extends ValidationAbstract implements ValidationInterface
     {
         $errors = [];
 
+        if (empty($value)) {
+            array_push($errors, "Cep não pode ser vazio!");
+        }
+
         if (!is_numeric($value)) {
             array_push($errors, "Cep precisar ser número!");
         }
@@ -34,9 +38,17 @@ class Cep extends ValidationAbstract implements ValidationInterface
 
     private function validateIfExists($value)
     {
-        $x = file_get_contents("http://viacep.com.br/ws/$value/json/");
+        $ch = curl_init("http://viacep.com.br/ws/$value/json/");
 
-        if (!is_null(json_decode($x)->erro)) {
+        $response = curl_exec($ch);
+
+        $result = json_decode($response);
+
+        curl_close($ch);
+
+        print_r($result);
+
+        if (!is_null($result->erro)) {
             return false;
         }
 
