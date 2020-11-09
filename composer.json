@@ -1,9 +1,12 @@
 {
     "name": "sanar/validation-lib",
-    "require": {},
+    "require": {
+        "php": ">=5.5.9"
+    },
      "autoload": {
         "psr-4": {
             "Sanar\\": "src"
         }
-    }
+    },
+    "license": "MIT"
 }
