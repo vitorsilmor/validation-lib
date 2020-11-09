@@ -1,0 +1,9 @@
+{
+    "name": "sanar/validation-lib",
+    "require": {},
+     "autoload": {
+        "psr-4": {
+            "Sanar\\": "src"
+        }
+    }
+}
