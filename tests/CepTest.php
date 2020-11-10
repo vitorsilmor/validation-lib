@@ -11,28 +11,28 @@ class CepTest extends TestCase
         $this->cep = new Cep();
     }
 
-    // public function testOk()
-    // {
-    //     $result = $this->cep->validate("57080525");
+    public function testOk()
+    {
+        $result = $this->cep->validate("57080525");
 
-    //     $this->assertFalse($result['error']);
-    // }
+        $this->assertFalse($result['error']);
+    }
 
-    // public function testEmpty()
-    // {
-    //     $result = $this->cep->validate("");
+    public function testEmpty()
+    {
+        $result = $this->cep->validate("");
 
-    //     $this->assertTrue($result['error']);
+        $this->assertTrue($result['error']);
 
-    //     $this->assertContains("Cep não pode ser vazio!", $result['messages']);
-    // }
+        $this->assertContains("Cep não pode ser vazio!", $result['messages']);
+    }
 
-    // public function testIsNumeric()
-    // {
-    //     $result = $this->cep->validate("abscd");
+    public function testIsNumeric()
+    {
+        $result = $this->cep->validate("abscd");
 
-    //     $this->assertTrue($result['error']);
+        $this->assertTrue($result['error']);
 
-    //     $this->assertContains("Cep precisar ser número!", $result['messages']);
-    // }
+        $this->assertContains("Cep precisar ser número!", $result['messages']);
+    }
 }

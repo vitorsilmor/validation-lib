@@ -38,17 +38,22 @@ class Cep extends ValidationAbstract implements ValidationInterface
 
     private function validateIfExists($value)
     {
-        $ch = curl_init("http://viacep.com.br/ws/$value/json/");
+
+        $url = "http://viacep.com.br/ws/{$value}/json/";
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL, $url);
 
         $response = curl_exec($ch);
 
-        $result = json_decode($response);
-
         curl_close($ch);
 
-        print_r($result);
+        $result = json_decode($response);
 
-        if (!is_null($result->erro)) {
+        if (isset($result->erro)) {
             return false;
         }
 
