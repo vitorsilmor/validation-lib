@@ -33,4 +33,10 @@ class Validator
         $validator = new Email();
         return $validator->validate($value);
     }
+
+    public static function validateMotivoDoacao($value)
+    {
+        $validator = new MotivoDoacao();
+        return $validator->validate($value);
+    }
 }
