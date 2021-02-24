@@ -23,9 +23,9 @@ class Cep extends ValidationAbstract implements ValidationInterface
             array_push($errors, "Cep precisa ter 8 digitos!");
         }
 
-        if (!$this->validateIfExists($value)) {
-            array_push($errors, "Cep não encontrado na base de dados");
-        }
+        // if (!$this->validateIfExists($value)) {
+        //     array_push($errors, "Cep não encontrado na base de dados");
+        // }
 
         return $this->result($errors);
 
