@@ -19,6 +19,7 @@ class MotivoDoacao extends ValidationAbstract implements ValidationInterface
             'SUCESSO',
             'ENVIO_VENDA',
             'REENVIO',
+            'MARKETING'
         );
 
         if (empty($value)) {
